@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brincadeira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="button">
+        <h1 id="h1">Estou merecendo uns beijinhos no proximo semestre? 😳😳</h1>
+        <p>(desculpa eu sou teimoso)</p>
+        <div id="btnContainer">
+            <button id="btnSim">Sim</button>
+            <button id="btnNao">Não</button>
+        </div>
+    </div>
+    <script>
+        const btnSim = document.getElementById('btnSim');
+        const btnNao = document.getElementById('btnNao');
+        const btnContainer = document.getElementById('btnContainer');
+        let counter = 0
+
+
+        function clickYes(){
+            if(counter == 0){
+                alert('Não pensou nenhuma, vez em dizer não? Vou ficar convencido assim..')
+            }else{
+                alert("Pois iremos combinar então 😏😏")
+                window.open('https://www.youtube.com/watch?v=nqJlNCs4qbI&list=RDnqJlNCs4qbI&start_radio=1', '_blank');
+            }
+        }
+        
+        function moveButton() {
+            const maxX = btnContainer.clientWidth - btnNao.offsetWidth;
+            const maxY = btnContainer.clientHeight - btnNao.offsetHeight;
+            const x = Math.floor(Math.random() * maxX);
+            const y = Math.floor(Math.random() * maxY);
+            btnNao.style.left = x + 'px';
+            btnNao.style.top = y + 'px';
+            counter++
+        }
+
+        btnSim.addEventListener('click', clickYes);
+        btnNao.addEventListener('mouseenter', moveButton);
+        btnNao.addEventListener('click', moveButton);
+        </script>
+</body>
+</html>

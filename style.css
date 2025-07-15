@@ -1,0 +1,106 @@
+/* --- Estilos Globais e Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-align: center;
+    overflow: hidden; /* Evita scroll por animação */
+}
+
+/* Camada da imagem de fundo animada */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('heartjh.png');
+    background-repeat: repeat;
+    background-size: 100px;
+    opacity: 0.4;
+    animation: moveBackground 60s linear infinite;
+    z-index: 0;
+}
+
+/* Conteúdo principal por cima */
+.button {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 90%; /* Limita a largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+#btnContainer {
+    position: relative;
+    width: 90%; /* Utiliza largura relativa */
+    max-width: 500px; /* Limita largura máxima */
+    height: 300px;
+    margin: 0 auto;
+}
+
+/* Botões */
+button {
+    position: absolute;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+button:hover {
+    filter: brightness(1.1);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+#btnSim {
+    background-color: #00ff15;
+    color: white;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#btnNao {
+    background-color: #ff0000;
+    color: white;
+    left: 65%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animação de movimento da imagem de fundo */
+@keyframes moveBackground {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
+}
